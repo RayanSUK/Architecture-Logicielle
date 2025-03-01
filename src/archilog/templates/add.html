@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter une entrée</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"><!-- Lien vers la feuille de style CSS dans 'static/css/' -->
+
+</head>
+<body>
+    <h1>Ajouter une entrée</h1>
+    <form method="post">
+        <label>Nom :</label>
+        <input type="text" name="name" required><br>
+
+        <label>Montant :</label>
+        <input type="number" step="0.01" name="amount" required><br>
+
+        <label>Catégorie :</label>
+        <input type="text" name="category" required><br>
+
+        <button type="submit">Ajouter</button>
+    </form>
+    <a href="{{ url_for('index') }}">Retour</a>
+</body>
+</html>

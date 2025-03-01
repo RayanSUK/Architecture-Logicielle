@@ -1,0 +1,90 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightgray;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Titres */
+h1 {
+    color: #3A7734;
+}
+
+/* Formulaires */
+form {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    text-align: left;
+    margin: 20px auto;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+button {
+    background: green;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkgreen;
+}
+
+/* Liens */
+a {
+    display: block;
+    margin-top: 10px;
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid gray;
+    text-align: center;
+}
+
+th {
+    background: blue;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: lightgray;
+}
+
+/* Boutons dans la table */
+td a {
+    padding: 5px 10px;
+    background: blue;
+    color: white;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+td a:hover {
+    background: darkblue;
+}
