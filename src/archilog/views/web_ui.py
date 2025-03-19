@@ -1,5 +1,5 @@
 import io
-from flask import Flask, request, redirect, url_for, flash, send_file, render_template, Blueprint
+from flask import Flask, request, redirect, url_for, flash, send_file, render_template, Blueprint, abort
 import archilog.models as models
 import archilog.services as services
 
@@ -61,3 +61,11 @@ def export_csv():
     return redirect(url_for("web_ui.index"))
 
 
+@web_ui.get("/users/create")
+def users_create_form():
+    abort(500)
+
+@app.errorhandler(500)
+def handle_internal_error(error):
+    flash("Erreur interne du serveur", "error")
+    return redirect(url_for("web_ui.index"))
