@@ -8,7 +8,7 @@ import archilog.services as services
 
 
 from flask import render_template
-from flask import Flask, request,redirect,url_for, flash
+from flask import Flask, request,redirect,url_for, flash,send_file
 #-------------------------PARTIE FLASK-------------------------------------------------
 
 
@@ -74,7 +74,7 @@ def export_csv():
     file_path = "export.csv"
     services.export_to_csv(file_path)
     flash("Exportation CSV réussie !")
-    return redirect(url_for("index"))
+    return send_file(file_path, as_attachment=True, download_name="exported_data.csv", mimetype='text/csv')
 
 
 #-------------------------Fin de partie Flask---------------------------------
