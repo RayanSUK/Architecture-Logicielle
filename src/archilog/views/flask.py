@@ -1,18 +1,20 @@
 import io
-from flask import Flask, request, redirect, url_for, flash, send_file, render_template
+from flask import Flask, request, redirect, url_for, flash, send_file, render_template, Blueprint
 import archilog.models as models
 import archilog.services as services
+
+web_ui = Blueprint("flask", __name__, url_prefix="/")
 
 # Création de l'application Flask
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # Nécessaire pour les messages flash
 
-@app.route("/")  # Route principal
+@web_ui.route("/")  # Route principal
 def index():
     entries = models.get_all_entries()
     return render_template("index.html", entries=entries)
 
-@app.route("/add", methods=["GET", "POST"])  # Route pour ajouter une entrée
+@web_ui.route("/add", methods=["GET", "POST"])  # Route pour ajouter une entrée
 def add_entry():
     if request.method == "POST":
         name = request.form["name"]
@@ -23,7 +25,7 @@ def add_entry():
         return redirect(url_for("index"))
     return render_template("add.html")
 
-@app.route("/update/<uuid:user_id>", methods=["GET", "POST"])  # Route pour mettre à jour
+@web_ui.route("/update/<uuid:user_id>", methods=["GET", "POST"])  # Route pour mettre à jour
 def update_entry(user_id):
     entry = models.get_entry(user_id)
 
@@ -37,13 +39,13 @@ def update_entry(user_id):
 
     return render_template("update.html", entry=entry)
 
-@app.route("/delete/<uuid:user_id>")  # Route pour supprimer une entrée
+@web_ui.route("/delete/<uuid:user_id>")  # Route pour supprimer une entrée
 def delete_entry(user_id):
     models.delete_entry(user_id)
     flash("Entrée supprimée avec succès !")
     return redirect(url_for("index"))
 
-@app.route("/import", methods=["POST"])  # Route pour importer un fichier CSV
+@web_ui.route("/import", methods=["POST"])  # Route pour importer un fichier CSV
 def import_csv():
     file = request.files["csv_file"]
     if file:
@@ -51,7 +53,7 @@ def import_csv():
         flash("Importation CSV réussie !")
     return redirect(url_for("index"))
 
-@app.route("/export")  # Route pour exporter les données en CSV
+@web_ui.route("/export")  # Route pour exporter les données en CSV
 def export_csv():
     file_path = "export.csv"
     services.export_to_csv(file_path)
