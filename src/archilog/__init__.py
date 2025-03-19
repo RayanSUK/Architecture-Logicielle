@@ -25,8 +25,9 @@ def create_app():
     )
 
     # Enregistrer les Blueprints
-    from archilog.views import api, web_ui
-    app.register_blueprint(api)
-    app.register_blueprint(web_ui)
+    from archilog.views.cli import cli
+    from archilog.views.flask import flask
+    app.register_blueprint(cli)
+    app.register_blueprint(flask)
 
     return app
