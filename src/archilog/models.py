@@ -5,9 +5,10 @@ import sqlalchemy as sa
 from sqlalchemy import Column, create_engine,MetaData,Table,Uuid,String,Float
 from dataclasses import dataclass
 
+from archilog import config
 
 
-engine = create_engine("sqlite:///data.db", echo=False)
+engine = create_engine(config.DATABASE_URL, echo=False)
 metadata = MetaData() #stocke les métadonnées dans la bd
 #créer la table users dans la bd
 tableTest = Table(

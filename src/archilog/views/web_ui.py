@@ -3,7 +3,7 @@ from flask import Flask, request, redirect, url_for, flash, send_file, render_te
 import archilog.models as models
 import archilog.services as services
 
-web_ui = Blueprint("flask", __name__, url_prefix="/")
+web_ui = Blueprint("web_ui", __name__, url_prefix="/")
 
 # Création de l'application Flask
 app = Flask(__name__)
@@ -22,7 +22,7 @@ def add_entry():
         category = request.form["category"]
         models.create_entry(name, amount, category)
         flash("Entrée ajoutée avec succès !")
-        return redirect(url_for("index"))
+        return redirect(url_for("web_ui.index"))
     return render_template("add.html")
 
 @web_ui.route("/update/<uuid:user_id>", methods=["GET", "POST"])  # Route pour mettre à jour
@@ -35,7 +35,7 @@ def update_entry(user_id):
         category = request.form["category"]
         models.update_entry(user_id, name, amount, category)
         flash("Entrée mise à jour avec succès !")
-        return redirect(url_for("index"))
+        return redirect(url_for("web_ui.index"))
 
     return render_template("update.html", entry=entry)
 
@@ -43,7 +43,7 @@ def update_entry(user_id):
 def delete_entry(user_id):
     models.delete_entry(user_id)
     flash("Entrée supprimée avec succès !")
-    return redirect(url_for("index"))
+    return redirect(url_for("web_ui.index"))
 
 @web_ui.route("/import", methods=["POST"])  # Route pour importer un fichier CSV
 def import_csv():
@@ -51,13 +51,13 @@ def import_csv():
     if file:
         services.import_from_csv(io.StringIO(file.stream.read().decode("utf-8")))
         flash("Importation CSV réussie !")
-    return redirect(url_for("index"))
+    return redirect(url_for("web_ui.index"))
 
 @web_ui.route("/export")  # Route pour exporter les données en CSV
 def export_csv():
     file_path = "export.csv"
     services.export_to_csv(file_path)
     flash("Exportation CSV réussie !")
-    return send_file(file_path, as_attachment=True, download_name="exported_data.csv", mimetype='text/csv')
+    return redirect(url_for("web_ui.index"))
 
 

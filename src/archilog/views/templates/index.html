@@ -23,13 +23,13 @@
     {% endwith %}
 
     <!-- Formulaire d'import CSV -->
-    <form action="{{ url_for('import_csv') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url_for('web_ui.import_csv') }}" method="post" enctype="multipart/form-data">
         <input type="file" name="csv_file" accept=".csv" required>
         <button type="submit">Importer CSV</button>
     </form>
 
     <!-- Bouton Export CSV -->
-    <a href="{{ url_for('export_csv') }}"><button>Exporter CSV</button></a>
+    <a href="{{ url_for('web_ui.export_csv') }}"><button>Exporter CSV</button></a>
 
     <!-- Liste des entrées -->
     <table border="1">
@@ -47,14 +47,14 @@
             <td>{{ entry.amount }}</td>
             <td>{{ entry.category }}</td>
             <td>
-                <a href="{{ url_for('update_entry', user_id=entry.id) }}">Modifier</a>
-                <a href="{{ url_for('delete_entry', user_id=entry.id) }}" onclick="return confirm('Supprimer cette entrée ?')">Supprimer</a>
+                <a href="{{ url_for('web_ui.update_entry', user_id=entry.id) }}">Modifier</a>
+                <a href="{{ url_for('web_ui.delete_entry', user_id=entry.id) }}" onclick="return confirm('Supprimer cette entrée ?')">Supprimer</a>
             </td>
         </tr>
         {% endfor %}
     </table>
 
     <!-- Bouton pour ajouter une nouvelle entrée -->
-    <a href="{{ url_for('add_entry') }}"><button>Ajouter une entrée</button></a>
+    <a href="{{ url_for('web_ui.add_entry') }}"><button>Ajouter une entrée</button></a>
 </body>
 </html>
