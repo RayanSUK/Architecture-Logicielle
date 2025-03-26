@@ -3,23 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <title>Modifier une entrée</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"><!-- Lien vers la feuille de style CSS dans 'static/css/' -->
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <h1>Modifier une entrée</h1>
+
+    <!-- Affichage des messages flash -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Formulaire avec WTForms pour modifier l'entrée -->
     <form method="post">
-        <label>Nom :</label>
-        <input type="text" name="name" value="{{ entry.name }}" required><br>
+        {{ form.hidden_tag() }}  <!-- CSRF Token -->
 
-        <label>Montant :</label>
-        <input type="number" step="0.01" name="amount" value="{{ entry.amount }}" required><br>
+        <div>
+            <label for="name">Nom :</label>
+            {{ form.name(size=32) }}  <!-- Affichage du champ 'name' -->
+            {% if form.name.errors %}
+                <ul>
+                    {% for error in form.name.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
 
-        <label>Catégorie :</label>
-        <input type="text" name="category" value="{{ entry.category }}" required><br>
+        <div>
+            <label for="amount">Montant :</label>
+            {{ form.amount(size=32) }}  <!-- Affichage du champ 'amount' -->
+            {% if form.amount.errors %}
+                <ul>
+                    {% for error in form.amount.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="category">Catégorie :</label>
+            {{ form.category() }}  <!-- Affichage du champ 'category' -->
+            {% if form.category.errors %}
+                <ul>
+                    {% for error in form.category.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
 
         <button type="submit">Modifier</button>
     </form>
+
     <a href="{{ url_for('web_ui.index') }}">Retour</a>
 </body>
 </html>

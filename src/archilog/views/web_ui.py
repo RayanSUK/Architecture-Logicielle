@@ -3,6 +3,19 @@ from flask import Flask, request, redirect, url_for, flash, send_file, render_te
 import archilog.models as models
 import archilog.services as services
 
+
+
+#-----------------------partie WTF form---------------------
+from flask_wtf import FlaskForm
+from wtforms import StringField, DecimalField, SelectField
+from wtforms.validators import DataRequired, NumberRange, Length
+
+class EntryForm(FlaskForm):
+    name = StringField('Nom', validators=[DataRequired(), Length(min=3, max=50)])
+    amount = DecimalField('Montant', validators=[DataRequired(), NumberRange(min=0.01, message="Le montant doit être supérieur à 0")])
+    category = StringField('Catégorie', validators=[DataRequired(), Length(min=1, max=50)])
+#-----------------------------------------------------------
+
 web_ui = Blueprint("web_ui", __name__, url_prefix="/")
 
 # Création de l'application Flask
@@ -16,28 +29,30 @@ def index():
 
 @web_ui.route("/add", methods=["GET", "POST"])  # Route pour ajouter une entrée
 def add_entry():
-    if request.method == "POST":
-        name = request.form["name"]
-        amount = float(request.form["amount"])
-        category = request.form["category"]
-        models.create_entry(name, amount, category)
+    form = EntryForm() #Pour le wtf form on à tout changer
+    if form.validate_on_submit():
+        name = form.name.data
+        amount = form.amount.data
+        category = form.category.data
+        models.create_entry(name, amount, category)  # Enregistre l'entrée
         flash("Entrée ajoutée avec succès !")
         return redirect(url_for("web_ui.index"))
-    return render_template("add.html")
+
+    return render_template("add.html", form=form)  # Renvoie le formulaire à afficher
 
 @web_ui.route("/update/<uuid:user_id>", methods=["GET", "POST"])  # Route pour mettre à jour
 def update_entry(user_id):
     entry = models.get_entry(user_id)
-
-    if request.method == "POST":
-        name = request.form["name"]
-        amount = float(request.form["amount"])
-        category = request.form["category"]
-        models.update_entry(user_id, name, amount, category)
+    form = EntryForm(obj=entry) #préremplit le fomrulaire avec les données
+    if form.validate_on_submit():
+        name = form.name.data
+        amount = form.amount.data
+        category = form.category.data
+        models.update_entry(user_id, name, amount, category)  # Met à jour l'entrée
         flash("Entrée mise à jour avec succès !")
         return redirect(url_for("web_ui.index"))
 
-    return render_template("update.html", entry=entry)
+    return render_template("update.html", form=form)  # Renvoie le formulaire avec les données existantes
 
 @web_ui.route("/delete/<uuid:user_id>")  # Route pour supprimer une entrée
 def delete_entry(user_id):
@@ -61,7 +76,7 @@ def export_csv():
     return redirect(url_for("web_ui.index"))
 
 
-@web_ui.get("/users/create")
+@web_ui.get("/users/create") #Pour tester ya juste a rajouter cette route
 def users_create_form():
     abort(500)
 
