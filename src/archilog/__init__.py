@@ -1,5 +1,17 @@
 import os
 from dataclasses import dataclass
+import logging
+
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler("archilog.log"),
+        logging.StreamHandler()
+]
+)
+
 
 @dataclass
 class Config:
@@ -14,3 +26,5 @@ if not database_url:
 debug = os.getenv('ARCHILOG_DEBUG',"False") == "True"
 
 config = Config(DATABASE_URL=database_url,DEBUG=debug)
+
+
