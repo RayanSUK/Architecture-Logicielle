@@ -1,10 +1,38 @@
 import io
 from flask import Flask, request, redirect, url_for, flash, send_file, render_template, Blueprint, abort
 import archilog.models as models
+from flask_httpauth import HTTPBasicAuth
+from werkzeug.security import generate_password_hash, check_password_hash
 import archilog.services as services
 import logging
 
+#-----------------------partie authentifiaction---------------------
 
+app = Flask(__name__)
+auth = HTTPBasicAuth()
+users = {
+    "admin": {
+        "password": generate_password_hash("admin"),
+        "role": "admin"
+    },
+    "user": {
+        "password": generate_password_hash("user"),
+        "role": "user"
+    }
+}
+@auth.verify_password
+def verify_password(username, password):
+    if username in users and check_password_hash(users[username]["password"], password):
+        return users[username]["role"]  # Retourne le rôle de l'utilisateur
+    return None
+
+# Fonction pour obtenir le rôle de l'utilisateur
+@auth.get_user_roles
+def get_user_roles(username):
+    user = users.get(username)
+    if user:
+        return user["role"]
+    return None
 #-----------------------partie WTF form---------------------
 from flask_wtf import FlaskForm
 from wtforms import StringField, DecimalField, SelectField
@@ -23,12 +51,15 @@ app = Flask(__name__)
 app.secret_key = "supersecretkey"  # Nécessaire pour les messages flash
 
 @web_ui.route("/")  # Route principal
+@auth.login_required  # Exiger une connexion pour afficher la page
 def index():
     entries = models.get_all_entries()
     logging.info("Affichage des entrées avec succès.")
-    return render_template("index.html", entries=entries)
+    return f"Hello, {auth.current_user()}!"+ render_template("index.html", entries=entries) 
+
 
 @web_ui.route("/add", methods=["GET", "POST"])  # Route pour ajouter une entrée
+@auth.login_required(role="admin")  # Seuls les admins peuvent ajouter des entrées
 def add_entry():
     form = EntryForm()  # Pour le WTF form, on a tout changé
     if form.validate_on_submit():
@@ -46,6 +77,7 @@ def add_entry():
     return render_template("add.html", form=form)  # Renvoie le formulaire à afficher
 
 @web_ui.route("/update/<uuid:user_id>", methods=["GET", "POST"])  # Route pour mettre à jour
+@auth.login_required(role="admin")
 def update_entry(user_id):
     try:
         entry = models.get_entry(user_id)
@@ -65,6 +97,7 @@ def update_entry(user_id):
         return redirect(url_for("web_ui.index"))
 
 @web_ui.route("/delete/<uuid:user_id>")  # Route pour supprimer une entrée
+@auth.login_required(role="admin")
 def delete_entry(user_id):
     try:
         models.delete_entry(user_id)
@@ -75,7 +108,9 @@ def delete_entry(user_id):
         logging.exception(f"Erreur lors de la suppression de l'entrée avec l'ID {user_id}.")
         flash("Une erreur est survenue lors de la suppression de l'entrée.", "error")
         return redirect(url_for("web_ui.index"))
+
 @web_ui.route("/import", methods=["POST"])  # Route pour importer un fichier CSV
+@auth.login_required(role="admin")
 def import_csv():
     try:
         file = request.files["csv_file"]
@@ -88,6 +123,7 @@ def import_csv():
         logging.exception("Erreur lors de l'importation du fichier CSV.")
         flash("Une erreur est survenue lors de l'importation du fichier CSV.", "error")
         return redirect(url_for("web_ui.index"))
+
 @web_ui.route("/export")  # Route pour exporter les données en CSV
 def export_csv():
     try:
