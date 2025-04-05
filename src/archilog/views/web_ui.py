@@ -6,6 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import archilog.services as services
 import logging
 
+
 #-----------------------partie authentifiaction---------------------
 
 app = Flask(__name__)
