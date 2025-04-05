@@ -47,8 +47,7 @@ class EntryForm(FlaskForm):
 
 web_ui = Blueprint("web_ui", __name__, url_prefix="/")
 
-# Création de l'application Flask
-app = Flask(__name__)
+
 app.secret_key = "supersecretkey"  # Nécessaire pour les messages flash
 
 @web_ui.route("/")  # Route principal

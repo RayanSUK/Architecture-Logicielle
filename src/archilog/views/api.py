@@ -1,15 +1,20 @@
-from flask import Flask #Prérequis
+import logging
+
+from flask import Flask, Blueprint, jsonify #Prérequis
 from spectree import SpecTree, SecurityScheme
 from pydantic import BaseModel, Field #Utilisation
 from flask_httpauth import HTTPTokenAuth
 
-from src.archilog.views.web_ui import auth
+import archilog.models as models
+
+
+
 
 app = Flask(__name__)
-spec = SpecTree("Flask") #Validation automatique des donneés entrante, generation doc SWAGGER et securité TOkens
-
+api = Blueprint("api", __name__, url_prefix="/api")
 
 #------------------Authentification avec token sur Swagger-------------
+#Validation automatique des donneés entrante, generation doc SWAGGER et securité TOkens
 spec = SpecTree(
     "flask",
     security_schemes=[
@@ -23,9 +28,9 @@ spec = SpecTree(
 #On veux proteger certaine routes avec des tokens de type Bearer
 
 auth = HTTPTokenAuth(scheme="Bearer")
-TOKENS={
-    "admin-token":"admin", #role admin
-    "user-token":"user" #role user
+TOKENS = {
+    "admin-token": "admin", #role admin
+    "user-token": "user" #role user
 }
 
 #vérifiaction
@@ -33,14 +38,33 @@ TOKENS={
 def verify_token(token):
     return TOKENS.get(token)
 
-#-------------MODELS------------
-class UserData(BaseModel): #le model
-    name: str = Field(min_length=2,max_lenght=40)
-    amount: int = Field(gt=0, lt=150)
-    category: str = Field(min_length=2, max_length=40)
+spec.register(api)
 
-@app.route("/api/users", methods=["POST"])
+#-------------MODELS------------
+class EntryInput(BaseModel):
+    name: str = Field(min_length=2, max_length=100)
+    amount: float
+    category: str | None = None
+
+class EntryOutput(BaseModel):
+    id: str
+    name: str
+    amount: float
+    category: str | None
+
+#--------------------Route------------------
+@api.route("/")
+@auth.login_required  # Exiger la connexion via un token
+def index():
+    # Exemple d'affichage de données ou d'informations de l'API
+    logging.info("Route /api/ a été atteinte")
+    return jsonify(message="Bienvenue sur l'API de gestion des entrées ! Vous êtes connecté en tant que {}".format(auth.current_user())), 200
+
+@api.route("/entries", methods=["POST"])
 @spec.validate(tags=["api"])
-def user_profil(json: UserData):
-    return {"username":json.name}
+@auth.login_required(role="admin")
+def add_entry(json: EntryInput):
+    entry_id = models.create_entry(json.name, json.amount, json.category)
+    entry = models.get_entry(entry_id)
+    return jsonify(entry.to_dict()), 201
 
