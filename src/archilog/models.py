@@ -17,7 +17,7 @@ tableTest = Table(
     Column("id", Uuid, primary_key=True, default=uuid.uuid4),
     Column("name", String, nullable=False),
     Column("amount", Float, nullable=False),
-    Column("category",String, nullable=False)
+    Column("category",String, nullable=True)
 )
 
 

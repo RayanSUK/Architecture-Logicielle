@@ -394,3 +394,163 @@
 2025-04-05 17:48:03,025 [INFO] 127.0.0.1 - - [05/Apr/2025 17:48:03] "GET / HTTP/1.1" 200 -
 2025-04-05 17:48:03,050 [INFO] 127.0.0.1 - - [05/Apr/2025 17:48:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-04-05 17:48:21,930 [INFO] 127.0.0.1 - - [05/Apr/2025 17:48:21] "[31m[1mGET / HTTP/1.1[0m" 401 -
+2025-04-09 13:32:05,110 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-09 13:32:05,110 [INFO] [33mPress CTRL+C to quit[0m
+2025-04-09 13:32:05,113 [INFO]  * Restarting with stat
+2025-04-09 13:32:06,237 [WARNING]  * Debugger is active!
+2025-04-09 13:32:06,239 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 13:32:15,442 [INFO] 127.0.0.1 - - [09/Apr/2025 13:32:15] "[31m[1mGET / HTTP/1.1[0m" 401 -
+2025-04-09 13:32:20,150 [INFO] Affichage des entrées avec succès.
+2025-04-09 13:32:20,195 [INFO] 127.0.0.1 - - [09/Apr/2025 13:32:20] "GET / HTTP/1.1" 200 -
+2025-04-09 13:32:20,286 [INFO] 127.0.0.1 - - [09/Apr/2025 13:32:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-09 13:32:20,321 [INFO] 127.0.0.1 - - [09/Apr/2025 13:32:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-09 13:37:24,411 [INFO] 127.0.0.1 - - [09/Apr/2025 13:37:24] "[32mGET /apidoc/swagger HTTP/1.1[0m" 308 -
+2025-04-09 13:37:24,441 [INFO] 127.0.0.1 - - [09/Apr/2025 13:37:24] "GET /apidoc/swagger/ HTTP/1.1" 200 -
+2025-04-09 13:37:26,252 [INFO] 127.0.0.1 - - [09/Apr/2025 13:37:26] "GET /apidoc/openapi.json HTTP/1.1" 200 -
+2025-04-09 13:45:49,691 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 13:45:49,846 [INFO]  * Restarting with stat
+2025-04-09 13:45:51,271 [WARNING]  * Debugger is active!
+2025-04-09 13:45:51,274 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 13:49:15,934 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 13:49:16,103 [INFO]  * Restarting with stat
+2025-04-09 13:49:18,233 [WARNING]  * Debugger is active!
+2025-04-09 13:49:18,238 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 13:49:18,288 [INFO] 127.0.0.1 - - [09/Apr/2025 13:49:18] "GET /apidoc/swagger/ HTTP/1.1" 200 -
+2025-04-09 13:49:18,507 [INFO] 127.0.0.1 - - [09/Apr/2025 13:49:18] "GET /apidoc/openapi.json HTTP/1.1" 200 -
+2025-04-09 13:53:24,631 [INFO] 127.0.0.1 - - [09/Apr/2025 13:53:24] "GET /apidoc/swagger/ HTTP/1.1" 200 -
+2025-04-09 13:53:24,782 [INFO] 127.0.0.1 - - [09/Apr/2025 13:53:24] "GET /apidoc/openapi.json HTTP/1.1" 200 -
+2025-04-09 13:53:25,072 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 13:53:25,300 [INFO]  * Restarting with stat
+2025-04-09 13:53:27,378 [WARNING]  * Debugger is active!
+2025-04-09 13:53:27,383 [INFO]  * Debugger PIN: 963-049-660
+2025-04-09 13:54:06,415 [INFO] 127.0.0.1 - - [09/Apr/2025 13:54:06] "[35m[1mGET /apidoc/swagger/ HTTP/1.1[0m" 500 -
+2025-04-09 13:54:06,573 [INFO] 127.0.0.1 - - [09/Apr/2025 13:54:06] "GET /apidoc/swagger/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-09 13:54:06,601 [INFO] 127.0.0.1 - - [09/Apr/2025 13:54:06] "GET /apidoc/swagger/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-04-09 13:54:06,680 [INFO] 127.0.0.1 - - [09/Apr/2025 13:54:06] "GET /apidoc/swagger/?__debugger__=yes&cmd=resource&f=console.png&s=e6H0Wdc2NpqJw5NkIabp HTTP/1.1" 200 -
+2025-04-09 13:54:06,749 [INFO] 127.0.0.1 - - [09/Apr/2025 13:54:06] "GET /apidoc/swagger/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-04-09 13:54:07,210 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 13:54:07,388 [INFO]  * Restarting with stat
+2025-04-09 13:54:09,554 [WARNING]  * Debugger is active!
+2025-04-09 13:54:09,559 [INFO]  * Debugger PIN: 963-049-660
+2025-04-09 13:54:12,719 [INFO] 127.0.0.1 - - [09/Apr/2025 13:54:12] "[35m[1mGET /apidoc/swagger/ HTTP/1.1[0m" 500 -
+2025-04-09 13:54:12,759 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 13:54:12,943 [INFO]  * Restarting with stat
+2025-04-09 13:54:15,037 [WARNING]  * Debugger is active!
+2025-04-09 13:54:15,042 [INFO]  * Debugger PIN: 963-049-660
+2025-04-09 13:54:15,155 [INFO] 127.0.0.1 - - [09/Apr/2025 13:54:15] "[36mGET /apidoc/swagger/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-09 13:54:15,220 [INFO] 127.0.0.1 - - [09/Apr/2025 13:54:15] "[36mGET /apidoc/swagger/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-04-09 13:56:24,257 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-09 13:56:24,258 [INFO] [33mPress CTRL+C to quit[0m
+2025-04-09 13:56:24,262 [INFO]  * Restarting with stat
+2025-04-09 13:56:26,434 [WARNING]  * Debugger is active!
+2025-04-09 13:56:26,442 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 13:56:26,498 [INFO] 127.0.0.1 - - [09/Apr/2025 13:56:26] "GET /apidoc/swagger/ HTTP/1.1" 200 -
+2025-04-09 13:56:26,655 [INFO] 127.0.0.1 - - [09/Apr/2025 13:56:26] "GET /apidoc/openapi.json HTTP/1.1" 200 -
+2025-04-09 13:58:06,348 [ERROR] 422 Request Validation Error: EntryInput - [{'type': 'missing', 'loc': ('name',), 'msg': 'Field required', 'input': {}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('amount',), 'msg': 'Field required', 'input': {}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}]
+2025-04-09 13:58:06,348 [INFO] 127.0.0.1 - - [09/Apr/2025 13:58:06] "[31m[1mPOST /api/entries HTTP/1.1[0m" 422 -
+2025-04-09 14:01:28,097 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 14:01:28,322 [INFO]  * Restarting with stat
+2025-04-09 14:01:30,457 [WARNING]  * Debugger is active!
+2025-04-09 14:01:30,463 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 14:01:36,170 [INFO] 127.0.0.1 - - [09/Apr/2025 14:01:36] "GET /apidoc/swagger/ HTTP/1.1" 200 -
+2025-04-09 14:01:36,343 [INFO] 127.0.0.1 - - [09/Apr/2025 14:01:36] "GET /apidoc/openapi.json HTTP/1.1" 200 -
+2025-04-09 14:02:20,506 [ERROR] 422 Request Validation Error: EntryInput - [{'type': 'missing', 'loc': ('name',), 'msg': 'Field required', 'input': {}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('amount',), 'msg': 'Field required', 'input': {}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}]
+2025-04-09 14:02:20,508 [INFO] 127.0.0.1 - - [09/Apr/2025 14:02:20] "[31m[1mPOST /api/entries HTTP/1.1[0m" 422 -
+2025-04-09 14:04:18,605 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 14:04:18,804 [INFO]  * Restarting with stat
+2025-04-09 14:04:20,775 [WARNING]  * Debugger is active!
+2025-04-09 14:04:20,781 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 14:10:32,433 [INFO] 127.0.0.1 - - [09/Apr/2025 14:10:32] "GET /apidoc/swagger/ HTTP/1.1" 200 -
+2025-04-09 14:10:32,632 [INFO] 127.0.0.1 - - [09/Apr/2025 14:10:32] "GET /apidoc/openapi.json HTTP/1.1" 200 -
+2025-04-09 14:10:32,743 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 14:10:33,025 [INFO]  * Restarting with stat
+2025-04-09 14:10:35,191 [WARNING]  * Debugger is active!
+2025-04-09 14:10:35,196 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 14:10:56,877 [INFO] 127.0.0.1 - - [09/Apr/2025 14:10:56] "[31m[1mPOST /api/entries HTTP/1.1[0m" 401 -
+2025-04-09 14:11:25,048 [INFO] 127.0.0.1 - - [09/Apr/2025 14:11:25] "[31m[1mPOST /api/entries HTTP/1.1[0m" 401 -
+2025-04-09 14:11:28,512 [INFO] 127.0.0.1 - - [09/Apr/2025 14:11:28] "[31m[1mPOST /api/entries HTTP/1.1[0m" 401 -
+2025-04-09 14:12:12,399 [INFO] 127.0.0.1 - - [09/Apr/2025 14:12:12] "[35m[1mPOST /api/entries HTTP/1.1[0m" 500 -
+2025-04-09 14:13:59,628 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 14:13:59,851 [INFO]  * Restarting with stat
+2025-04-09 14:14:01,909 [WARNING]  * Debugger is active!
+2025-04-09 14:14:01,916 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 14:14:38,532 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-09 14:14:38,532 [INFO] [33mPress CTRL+C to quit[0m
+2025-04-09 14:14:38,536 [INFO]  * Restarting with stat
+2025-04-09 14:14:40,623 [WARNING]  * Debugger is active!
+2025-04-09 14:14:40,628 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 14:14:40,913 [INFO] 127.0.0.1 - - [09/Apr/2025 14:14:40] "GET /apidoc/swagger/ HTTP/1.1" 200 -
+2025-04-09 14:14:41,141 [INFO] 127.0.0.1 - - [09/Apr/2025 14:14:41] "GET /apidoc/openapi.json HTTP/1.1" 200 -
+2025-04-09 14:15:04,769 [INFO] 127.0.0.1 - - [09/Apr/2025 14:15:04] "[35m[1mPOST /api/entries HTTP/1.1[0m" 500 -
+2025-04-09 14:18:29,647 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 14:18:29,825 [INFO]  * Restarting with stat
+2025-04-09 14:18:31,904 [WARNING]  * Debugger is active!
+2025-04-09 14:18:31,910 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 14:18:32,576 [INFO] 127.0.0.1 - - [09/Apr/2025 14:18:32] "GET /apidoc/swagger/ HTTP/1.1" 200 -
+2025-04-09 14:18:32,672 [INFO] 127.0.0.1 - - [09/Apr/2025 14:18:32] "GET /apidoc/openapi.json HTTP/1.1" 200 -
+2025-04-09 14:18:54,070 [INFO] 127.0.0.1 - - [09/Apr/2025 14:18:54] "[35m[1mPOST /api/user HTTP/1.1[0m" 500 -
+2025-04-09 14:19:27,629 [INFO] 127.0.0.1 - - [09/Apr/2025 14:19:27] "GET /apidoc/swagger/ HTTP/1.1" 200 -
+2025-04-09 14:19:27,797 [INFO] 127.0.0.1 - - [09/Apr/2025 14:19:27] "GET /apidoc/openapi.json HTTP/1.1" 200 -
+2025-04-09 14:19:28,145 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 14:19:28,318 [INFO]  * Restarting with stat
+2025-04-09 14:19:30,395 [WARNING]  * Debugger is active!
+2025-04-09 14:19:30,401 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 14:19:51,126 [INFO] 127.0.0.1 - - [09/Apr/2025 14:19:51] "[35m[1mPOST /api/user HTTP/1.1[0m" 500 -
+2025-04-09 14:28:35,610 [INFO] 127.0.0.1 - - [09/Apr/2025 14:28:35] "GET /apidoc/swagger/ HTTP/1.1" 200 -
+2025-04-09 14:28:35,811 [INFO] 127.0.0.1 - - [09/Apr/2025 14:28:35] "GET /apidoc/openapi.json HTTP/1.1" 200 -
+2025-04-09 14:29:12,424 [INFO] 127.0.0.1 - - [09/Apr/2025 14:29:12] "[35m[1mPOST /api/user HTTP/1.1[0m" 500 -
+2025-04-09 14:30:20,238 [INFO] 127.0.0.1 - - [09/Apr/2025 14:30:20] "GET /apidoc/swagger/ HTTP/1.1" 200 -
+2025-04-09 14:30:20,417 [INFO] 127.0.0.1 - - [09/Apr/2025 14:30:20] "GET /apidoc/openapi.json HTTP/1.1" 200 -
+2025-04-09 14:30:20,754 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\models.py', reloading
+2025-04-09 14:30:20,977 [INFO]  * Restarting with stat
+2025-04-09 14:30:23,362 [WARNING]  * Debugger is active!
+2025-04-09 14:30:23,369 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 14:30:50,101 [ERROR] 422 Request Validation Error: EntryInput - [{'type': 'missing', 'loc': ('name',), 'msg': 'Field required', 'input': {}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('amount',), 'msg': 'Field required', 'input': {}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}]
+2025-04-09 14:30:50,102 [INFO] 127.0.0.1 - - [09/Apr/2025 14:30:50] "[31m[1mPOST /api/user HTTP/1.1[0m" 422 -
+2025-04-09 14:43:59,727 [ERROR] 422 Request Validation Error: EntryInput - [{'type': 'missing', 'loc': ('name',), 'msg': 'Field required', 'input': {}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('amount',), 'msg': 'Field required', 'input': {}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}]
+2025-04-09 14:43:59,728 [INFO] 127.0.0.1 - - [09/Apr/2025 14:43:59] "[31m[1mPOST /api/user HTTP/1.1[0m" 422 -
+2025-04-09 14:44:02,844 [INFO] 127.0.0.1 - - [09/Apr/2025 14:44:02] "GET /apidoc/swagger/ HTTP/1.1" 200 -
+2025-04-09 14:44:02,945 [INFO] 127.0.0.1 - - [09/Apr/2025 14:44:02] "GET /apidoc/openapi.json HTTP/1.1" 200 -
+2025-04-09 14:44:33,234 [ERROR] 422 Request Validation Error: EntryInput - [{'type': 'missing', 'loc': ('name',), 'msg': 'Field required', 'input': {}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('amount',), 'msg': 'Field required', 'input': {}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}]
+2025-04-09 14:44:33,235 [INFO] 127.0.0.1 - - [09/Apr/2025 14:44:33] "[31m[1mPOST /api/user HTTP/1.1[0m" 422 -
+2025-04-09 14:50:34,468 [INFO] 127.0.0.1 - - [09/Apr/2025 14:50:34] "[35m[1mPOST /api/user HTTP/1.1[0m" 500 -
+2025-04-09 15:02:48,285 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-09 15:02:48,292 [INFO] [33mPress CTRL+C to quit[0m
+2025-04-09 15:02:48,296 [INFO]  * Restarting with stat
+2025-04-09 15:02:50,242 [WARNING]  * Debugger is active!
+2025-04-09 15:02:50,248 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 15:02:57,884 [INFO] 127.0.0.1 - - [09/Apr/2025 15:02:57] "[35m[1mPOST /api/user HTTP/1.1[0m" 500 -
+2025-04-09 15:03:59,338 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 15:03:59,584 [INFO]  * Restarting with stat
+2025-04-09 15:04:01,702 [WARNING]  * Debugger is active!
+2025-04-09 15:04:01,709 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 15:04:02,811 [INFO] 127.0.0.1 - - [09/Apr/2025 15:04:02] "POST /api/user HTTP/1.1" 200 -
+2025-04-09 15:09:09,674 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 15:09:09,868 [INFO]  * Restarting with stat
+2025-04-09 15:09:12,019 [WARNING]  * Debugger is active!
+2025-04-09 15:09:12,025 [INFO]  * Debugger PIN: 963-049-660
+2025-04-09 15:09:40,119 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 15:09:40,364 [INFO]  * Restarting with stat
+2025-04-09 15:09:42,465 [WARNING]  * Debugger is active!
+2025-04-09 15:09:42,471 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 15:10:30,275 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 15:10:30,450 [INFO]  * Restarting with stat
+2025-04-09 15:10:32,496 [WARNING]  * Debugger is active!
+2025-04-09 15:10:32,501 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 15:11:14,043 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 15:11:14,297 [INFO]  * Restarting with stat
+2025-04-09 15:11:16,333 [WARNING]  * Debugger is active!
+2025-04-09 15:11:16,339 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 15:14:53,409 [INFO]  * Detected change in 'C:\\Users\\sukka\\PycharmProjects\\Architecture-Logicielle\\src\\archilog\\views\\api.py', reloading
+2025-04-09 15:14:53,653 [INFO]  * Restarting with stat
+2025-04-09 15:14:55,718 [WARNING]  * Debugger is active!
+2025-04-09 15:14:55,724 [INFO]  * Debugger PIN: 132-424-051
+2025-04-09 15:14:56,803 [INFO] 127.0.0.1 - - [09/Apr/2025 15:14:56] "GET /apidoc/swagger/ HTTP/1.1" 200 -
+2025-04-09 15:14:57,046 [INFO] 127.0.0.1 - - [09/Apr/2025 15:14:57] "GET /apidoc/openapi.json HTTP/1.1" 200 -
+2025-04-09 15:15:26,573 [INFO] 127.0.0.1 - - [09/Apr/2025 15:15:26] "GET /api/user HTTP/1.1" 200 -
+2025-04-09 15:16:09,740 [INFO] 127.0.0.1 - - [09/Apr/2025 15:16:09] "GET /api/user HTTP/1.1" 200 -
+2025-04-09 15:18:16,255 [INFO] 127.0.0.1 - - [09/Apr/2025 15:18:16] "[35m[1mPOST /api/user/import HTTP/1.1[0m" 500 -
