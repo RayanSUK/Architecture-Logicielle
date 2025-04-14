@@ -6,6 +6,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import archilog.services as services
 import logging
 
+from flask_wtf import FlaskForm
+from wtforms import StringField, DecimalField, SelectField
+from wtforms.validators import DataRequired, NumberRange, Length
+
 
 #-----------------------partie authentifiaction---------------------
 
@@ -35,9 +39,7 @@ def get_user_roles(username):
         return user["role"]
     return None
 #-----------------------partie WTF form---------------------
-from flask_wtf import FlaskForm
-from wtforms import StringField, DecimalField, SelectField
-from wtforms.validators import DataRequired, NumberRange, Length
+
 
 class EntryForm(FlaskForm):
     name = StringField('Nom', validators=[DataRequired(), Length(min=3, max=50)])
@@ -58,6 +60,10 @@ def index():
     return f"Hello, {auth.current_user()}!"+ render_template("index.html", entries=entries) 
 
 
+@web_ui.route("/")
+def logout():
+    return "logout",401
+    
 @web_ui.route("/add", methods=["GET", "POST"])  # Route pour ajouter une entrée
 @auth.login_required(role="admin")  # Seuls les admins peuvent ajouter des entrées
 def add_entry():
