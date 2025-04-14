@@ -99,11 +99,13 @@ class File(BaseModel):
 @api.route("/user/import", methods=["POST"])
 @auth.login_required
 @spec.validate(tags=["user"])
-def import_csv():
-    file_path = request.json.get("file_path")
-    models.import_from_csv(file_path)
+def import_csv(form: file):
+    file= form.file #à revoir
     
-    return {"message": "Importation réussie depuis le fichier CSV"}
+    #file_path = request.json.get("file_path")
+    #models.import_from_csv(file_path)
+    
+    return {"fielname": file.filename, "type":file.contentType} #à revoir 
 
 
 @api.route("/user/export", methods=["GET"])
