@@ -44,6 +44,9 @@ class EntryInput(BaseModel):
     category: str | None = Field(default=None, description="Catégorie optionnelle")
 
 
+class File(BaseModel):
+    uid: str
+    file: BaseFile
 #--------------------Route------------------
 @api.route("/")  # Exiger la connexion via un token
 def index():
@@ -91,16 +94,12 @@ def delete_entry(id):
 
 
 
-class File(BaseModel):
-    uid: str
-    file: BaseFile
-
-
 @api.route("/user/import", methods=["POST"])
 @auth.login_required
 @spec.validate(tags=["user"])
 def import_csv(form: file):
-    file= form.file #à revoir
+    file= form.file["file"]
+    filename = secure_filename(file.filename)
     
     #file_path = request.json.get("file_path")
     #models.import_from_csv(file_path)
