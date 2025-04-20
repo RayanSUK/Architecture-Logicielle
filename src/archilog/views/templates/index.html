@@ -1,37 +1,15 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion des entrées</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"><!-- Lien vers la feuille de style CSS dans 'static/css/' -->
+{% extends "base.html" %}
 
+{% block title %}Gestion des entrées{% endblock %}
 
-</head>
-<body>
-    <h1>Gestion des entrées</h1>
-
-    <!-- Affichage des messages flash -->
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-
-    <!-- Formulaire d'import CSV -->
+{% block content %}
     <form action="{{ url_for('web_ui.import_csv') }}" method="post" enctype="multipart/form-data">
         <input type="file" name="csv_file" accept=".csv" required>
         <button type="submit">Importer CSV</button>
     </form>
 
-    <!-- Bouton Export CSV -->
     <a href="{{ url_for('web_ui.export_csv') }}"><button>Exporter CSV</button></a>
 
-    <!-- Liste des entrées -->
     <table border="1">
         <tr>
             <th>ID</th>
@@ -54,7 +32,5 @@
         {% endfor %}
     </table>
 
-    <!-- Bouton pour ajouter une nouvelle entrée -->
     <a href="{{ url_for('web_ui.add_entry') }}"><button>Ajouter une entrée</button></a>
-</body>
-</html>
+{% endblock %}

@@ -2,6 +2,9 @@ from flask import Flask
 from archilog.views.web_ui import web_ui
 from archilog.views.api import api,spec
 from dotenv import load_dotenv
+
+from src.archilog.views.web_ui import register_error_handlers
+
 load_dotenv()
 
 def create_app():
@@ -15,6 +18,8 @@ def create_app():
     #Enregistrer les bluePRints
     app.register_blueprint(web_ui)
     app.register_blueprint(api) #nouveau
+
+    register_error_handlers(app)
 
 
     return app

@@ -47,7 +47,7 @@ class EntryForm(FlaskForm):
     category = StringField('Catégorie', validators=[DataRequired(), Length(min=1, max=50)])
 #-----------------------------------------------------------
 
-web_ui = Blueprint("web_ui", __name__, url_prefix="/")
+web_ui = Blueprint("web_ui", __name__, url_prefix="/web_ui")
 
 
 app.secret_key = "supersecretkey"  # Nécessaire pour les messages flash
@@ -60,9 +60,6 @@ def index():
     return f"Hello, {auth.current_user()}!"+ render_template("index.html", entries=entries) 
 
 
-@web_ui.route("/")
-def logout():
-    return "logout",401
     
 @web_ui.route("/add", methods=["GET", "POST"])  # Route pour ajouter une entrée
 @auth.login_required(role="admin")  # Seuls les admins peuvent ajouter des entrées
@@ -133,23 +130,39 @@ def import_csv():
 @web_ui.route("/export")  # Route pour exporter les données en CSV
 def export_csv():
     try:
-        file_path = "export.csv"
-        services.export_to_csv(file_path)
-        flash("Exportation CSV réussie !")
-        logging.info("Données exportées en CSV avec succès.")
-        return redirect(url_for("web_ui.index"))
+        # Appeler la fonction export_to_csv pour obtenir le CSV généré en mémoire
+        csv_data = services.export_to_csv()  # Pas besoin de paramètre ici
+
+        # Convertir le texte CSV en un objet BytesIO pour l'envoyer avec send_file
+        return send_file(
+            io.BytesIO(csv_data.encode('utf-8')),  # Convertir en bytes
+            mimetype="text/csv",
+            as_attachment=True,
+            download_name="export.csv"  # Nom du fichier téléchargé
+        )
     except Exception as e:
         logging.exception("Erreur lors de l'exportation des données en CSV.")
         flash("Une erreur est survenue lors de l'exportation.", "error")
         return redirect(url_for("web_ui.index"))
 
-
-@web_ui.get("/users/create") #Pour tester ya juste a rajouter cette route
-def users_create_form():
-    abort(500)
-
 @web_ui.errorhandler(500)
 def handle_internal_error(error):
     flash("Erreur interne du serveur", "error")
     logging.exception(error)
-    return redirect(url_for(".home"))
+    return redirect(url_for("web_ui.index"))
+
+
+# Gestionnaire d'erreurs 404 (page introuvable)
+def register_error_handlers(app):
+    @app.errorhandler(404)
+    def page_not_found(error):
+        flash("Page non trouvée", "error")
+        logging.error(f"Erreur 404: {error} - Page introuvable.")  # Logue l'erreur 404
+        return redirect(url_for('web_ui.index'))
+
+# Route de test pour simuler une erreur 500
+@web_ui.get("/users/create")
+def users_create_form():
+    abort(500)  # Force une erreur 500 pour tester le gestionnaire
+    return render_template("index.html")
+

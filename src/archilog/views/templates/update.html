@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Modifier une entrée</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <h1>Modifier une entrée</h1>
+{% extends "base.html" %}
 
-    <!-- Affichage des messages flash -->
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+{% block title %}Modifier une entrée{% endblock %}
+{% block header %}Modifier une entrée{% endblock %}
 
-    <!-- Formulaire avec WTForms pour modifier l'entrée -->
+{% block content %}
     <form method="post">
-        {{ form.hidden_tag() }}  <!-- CSRF Token -->
+        {{ form.hidden_tag() }}
 
         <div>
             <label for="name">Nom :</label>
-            {{ form.name(size=32) }}  <!-- Affichage du champ 'name' -->
+            {{ form.name(size=32) }}
             {% if form.name.errors %}
                 <ul>
                     {% for error in form.name.errors %}
@@ -37,7 +21,7 @@
 
         <div>
             <label for="amount">Montant :</label>
-            {{ form.amount(size=32) }}  <!-- Affichage du champ 'amount' -->
+            {{ form.amount(size=32) }}
             {% if form.amount.errors %}
                 <ul>
                     {% for error in form.amount.errors %}
@@ -49,7 +33,7 @@
 
         <div>
             <label for="category">Catégorie :</label>
-            {{ form.category() }}  <!-- Affichage du champ 'category' -->
+            {{ form.category() }}
             {% if form.category.errors %}
                 <ul>
                     {% for error in form.category.errors %}
@@ -61,7 +45,4 @@
 
         <button type="submit">Modifier</button>
     </form>
-
-    <a href="{{ url_for('web_ui.index') }}">Retour</a>
-</body>
-</html>
+{% endblock %}

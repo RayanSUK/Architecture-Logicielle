@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Ajouter une entrée</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <h1>Ajouter une entrée</h1>
+{% extends "base.html" %}
+
+{% block title %}Ajouter une entrée{% endblock %}
+{% block header %}Ajouter une entrée{% endblock %}
+
+{% block content %}
     <form method="post">
         {{ form.hidden_tag() }}
 
@@ -21,6 +18,4 @@
 
         <button type="submit">Ajouter</button>
     </form>
-    <a href="{{ url_for('web_ui.index') }}">Retour</a>
-</body>
-</html>
+{% endblock %}

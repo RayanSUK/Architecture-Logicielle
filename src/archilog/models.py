@@ -1,7 +1,5 @@
-import csv
-import sqlalchemy
 import uuid
-import sqlalchemy as sa
+
 from sqlalchemy import Column, create_engine,MetaData,Table,Uuid,String,Float
 from dataclasses import dataclass
 
@@ -81,36 +79,3 @@ def delete_entry(id: uuid.UUID) -> None:
         con.execute(stmt)
 
 
-def import_from_csv(file_path: str) -> None:
-    """Importe des données depuis un fichier csv"""
-    with open(file_path, mode='r', encoding='utf-8') as file:
-        reader = csv.reader(file, delimiter=';')  # Prend en compte le délimiteur ;
-        next(reader)  # Ignorer l'en-tête
-
-        for row in reader:
-            id = uuid.UUID(row[0])  # Utiliser UUID correctement
-            name = row[1]
-            amount = float(row[2])
-            category = row[3]
-
-            stmt = tableTest.insert().values(id=id, name=name, amount=amount, category=category)
-            with engine.begin() as con:
-                con.execute(stmt)
-
-
-    print(f"Importation terminee depuis {file_path}")
-
-
-
-def export_to_csv(file_path: str) -> None:
-    """Exporte les données de la base vers un fichier CSV (nécessite un chemin de destination dans un fichier csv existant)"""
-    stmt = tableTest.select()
-    with engine.begin() as con:
-        results = con.execute(stmt).fetchall()
-
-    with open(file_path, mode='w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow(["ID", "Name", "Amount", "Category"])  # Écrire l'en-tête
-        for row in results:
-            writer.writerow([row.id, row.name, row.amount, row.category])  # Écrire les données
-    print(f"Les donnees ont ete exportees vers {file_path}")

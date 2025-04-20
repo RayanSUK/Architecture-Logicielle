@@ -5,17 +5,27 @@ import io
 from archilog.models import create_entry, get_all_entries, Entry
 
 
-def export_to_csv(file_path: str):
-    """Exporte toutes les entrées de la base de données vers un fichier CSV.
-    Args:
-        file_path (str): Chemin du fichier CSV où enregistrer les données."""
-    with open(file_path, "w", newline="", encoding="utf-8") as csvfile:
-        csv_writer = csv.DictWriter(
-            csvfile, fieldnames=[f.name for f in dataclasses.fields(Entry)]
-        )
-        csv_writer.writeheader()
-        for todo in get_all_entries():
-            csv_writer.writerow(dataclasses.asdict(todo))
+def export_to_csv():
+    """Exporte toutes les entrées de la base de données vers un fichier CSV en mémoire."""
+
+    # Créer un buffer en mémoire pour stocker le CSV
+    csv_buffer = io.StringIO()
+
+    # Créer un writer pour écrire dans le buffer en mémoire
+    csv_writer = csv.writer(csv_buffer)
+
+    # Écrire l'en-tête du CSV (les colonnes)
+    csv_writer.writerow(["id", "name", "amount", "category"])
+
+    # Écrire les données de la base de données dans le CSV
+    for entry in get_all_entries():
+        csv_writer.writerow([entry.id, entry.name, entry.amount, entry.category])
+
+    # Remettre le curseur au début du buffer pour la lecture
+    csv_buffer.seek(0)
+
+    # Retourner le buffer sous forme de texte
+    return csv_buffer.getvalue()
 
 
 def import_from_csv(csv_file: io.StringIO) -> None:
@@ -26,7 +36,7 @@ def import_from_csv(csv_file: io.StringIO) -> None:
     csv_reader = csv.DictReader(
         csv_file,
         fieldnames=[f.name for f in dataclasses.fields(Entry)],
-        delimiter=";"
+        delimiter=","
     )
 
     next(csv_reader)  # Ignorer l'en-tête
