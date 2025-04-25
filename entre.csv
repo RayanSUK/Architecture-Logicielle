@@ -1,10 +1,2 @@
 id,name,amount,category
-aa499cec-ab27-4b42-8db7-38c8623ee0e2,Test4,12.0,4testeur 
-12ee8ca3-1564-47b1-932f-93020621dc03,Test5,18888.0,5testeur
-afa36b85-84ff-46ef-9e68-05089b4a9eb7,string,1.0,test
-8505e0ba-21da-42a6-b709-5b2d72994b9b,string,1.0,null
-07deb643-2a36-470e-a4ff-42234e1edd7f,Nom inconnu,0.0,Non spécifié
-eb32bc76-eedb-417e-9af4-d280fa1a8f9c,Nom inconnu,0.0,Non spécifié
-f6d331f1-f564-435d-8678-376acea175c7,2test,11.0,3testeur
-69f6dd70-a143-4a74-af7b-3a04c8ab8e5a,Test4,12.0,4testeur
-279a8593-a033-4e3e-a575-1835486cd7ca,Test5,18888.0,5testeur
+d9cedd30-a26b-4ea0-a2ea-5a219084afd8,Test,50.0,Tesssss

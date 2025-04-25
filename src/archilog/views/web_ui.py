@@ -10,7 +10,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, DecimalField, SelectField
 from wtforms.validators import DataRequired, NumberRange, Length
 
-
+web_ui = Blueprint("web_ui", __name__, url_prefix="/")
 #-----------------------partie authentifiaction---------------------
 
 app = Flask(__name__)
@@ -25,6 +25,9 @@ users = {
         "role": "user"
     }
 }
+
+app.secret_key = "supersecretkey"  # Nécessaire pour les messages flash
+
 @auth.verify_password
 def verify_password(username, password):
     if username in users and check_password_hash(users[username]["password"], password):
@@ -47,10 +50,9 @@ class EntryForm(FlaskForm):
     category = StringField('Catégorie', validators=[DataRequired(), Length(min=1, max=50)])
 #-----------------------------------------------------------
 
-web_ui = Blueprint("web_ui", __name__, url_prefix="/web_ui")
 
 
-app.secret_key = "supersecretkey"  # Nécessaire pour les messages flash
+
 
 @web_ui.route("/")  # Route principal
 @auth.login_required  # Exiger une connexion pour afficher la page
