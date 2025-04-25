@@ -63,5 +63,7 @@ def delete(id: uuid.UUID):
 @cli.command()
 @click.argument("file_path", type=click.Path())
 def export_csv(file_path):
-    services.export_to_csv(file_path)
+    contenu_csv = services.export_to_csv()  # Récupère la chaîne CSV
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(contenu_csv)
     click.echo(f"Données exportées vers {file_path}")

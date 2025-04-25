@@ -11,7 +11,7 @@ from flask_httpauth import HTTPTokenAuth
 import archilog.models as models
 import io
 
-from src.archilog import services
+from archilog import services
 
 api = Blueprint("api", __name__, url_prefix="/api")
 auth = HTTPTokenAuth(scheme="Bearer")

@@ -1599,3 +1599,51 @@ werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server e
 2025-04-20 22:33:55,206 [INFO]  * Restarting with stat
 2025-04-20 22:33:56,598 [WARNING]  * Debugger is active!
 2025-04-20 22:33:56,601 [INFO]  * Debugger PIN: 132-424-051
+2025-04-25 15:51:07,608 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-25 15:51:07,609 [INFO] [33mPress CTRL+C to quit[0m
+2025-04-25 15:51:07,614 [INFO]  * Restarting with stat
+2025-04-25 15:51:10,152 [WARNING]  * Debugger is active!
+2025-04-25 15:51:10,164 [INFO]  * Debugger PIN: 132-424-051
+2025-04-25 15:51:27,242 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-25 15:51:27,243 [INFO] [33mPress CTRL+C to quit[0m
+2025-04-25 15:51:27,245 [INFO]  * Restarting with stat
+2025-04-25 15:51:29,777 [WARNING]  * Debugger is active!
+2025-04-25 15:51:29,782 [INFO]  * Debugger PIN: 132-424-051
+2025-04-25 15:51:38,254 [ERROR] Erreur 404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. - Page introuvable.
+2025-04-25 15:51:38,262 [INFO] 127.0.0.1 - - [25/Apr/2025 15:51:38] "[32mGET / HTTP/1.1[0m" 302 -
+2025-04-25 15:51:38,280 [INFO] 127.0.0.1 - - [25/Apr/2025 15:51:38] "[31m[1mGET /web_ui/ HTTP/1.1[0m" 401 -
+2025-04-25 15:51:38,626 [ERROR] Erreur 404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. - Page introuvable.
+2025-04-25 15:51:38,630 [INFO] 127.0.0.1 - - [25/Apr/2025 15:51:38] "[32mGET / HTTP/1.1[0m" 302 -
+2025-04-25 15:51:38,644 [INFO] 127.0.0.1 - - [25/Apr/2025 15:51:38] "[31m[1mGET /web_ui/ HTTP/1.1[0m" 401 -
+2025-04-25 15:51:44,651 [INFO] Affichage des entrées avec succès.
+2025-04-25 15:51:44,676 [INFO] 127.0.0.1 - - [25/Apr/2025 15:51:44] "GET /web_ui/ HTTP/1.1" 200 -
+2025-04-25 15:51:48,142 [INFO] 127.0.0.1 - - [25/Apr/2025 15:51:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-25 15:51:48,224 [ERROR] Erreur 404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. - Page introuvable.
+2025-04-25 15:51:48,226 [INFO] 127.0.0.1 - - [25/Apr/2025 15:51:48] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-04-25 15:51:48,411 [INFO] Affichage des entrées avec succès.
+2025-04-25 15:51:48,413 [INFO] 127.0.0.1 - - [25/Apr/2025 15:51:48] "GET /web_ui/ HTTP/1.1" 200 -
+2025-04-25 15:51:59,892 [INFO] Affichage des entrées avec succès.
+2025-04-25 15:51:59,893 [INFO] 127.0.0.1 - - [25/Apr/2025 15:51:59] "GET /web_ui/ HTTP/1.1" 200 -
+2025-04-25 15:51:59,928 [INFO] 127.0.0.1 - - [25/Apr/2025 15:51:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-25 15:51:59,983 [ERROR] Erreur 404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. - Page introuvable.
+2025-04-25 15:51:59,992 [INFO] 127.0.0.1 - - [25/Apr/2025 15:51:59] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-04-25 15:52:00,222 [INFO] Affichage des entrées avec succès.
+2025-04-25 15:52:00,226 [INFO] 127.0.0.1 - - [25/Apr/2025 15:52:00] "GET /web_ui/ HTTP/1.1" 200 -
+2025-04-25 15:52:14,163 [ERROR] Erreur 404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. - Page introuvable.
+2025-04-25 15:52:14,165 [INFO] 127.0.0.1 - - [25/Apr/2025 15:52:14] "[32mGET /web_ui/apidoc/swagger HTTP/1.1[0m" 302 -
+2025-04-25 15:52:14,368 [INFO] Affichage des entrées avec succès.
+2025-04-25 15:52:14,369 [INFO] 127.0.0.1 - - [25/Apr/2025 15:52:14] "GET /web_ui/ HTTP/1.1" 200 -
+2025-04-25 15:52:14,394 [INFO] 127.0.0.1 - - [25/Apr/2025 15:52:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-25 15:52:14,444 [ERROR] Erreur 404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. - Page introuvable.
+2025-04-25 15:52:14,445 [INFO] 127.0.0.1 - - [25/Apr/2025 15:52:14] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-04-25 15:52:14,648 [INFO] Affichage des entrées avec succès.
+2025-04-25 15:52:14,650 [INFO] 127.0.0.1 - - [25/Apr/2025 15:52:14] "GET /web_ui/ HTTP/1.1" 200 -
+2025-04-25 15:52:17,102 [ERROR] Erreur 404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. - Page introuvable.
+2025-04-25 15:52:17,103 [INFO] 127.0.0.1 - - [25/Apr/2025 15:52:17] "[32mGET / HTTP/1.1[0m" 302 -
+2025-04-25 15:52:17,325 [INFO] Affichage des entrées avec succès.
+2025-04-25 15:52:17,327 [INFO] 127.0.0.1 - - [25/Apr/2025 15:52:17] "GET /web_ui/ HTTP/1.1" 200 -
+2025-04-25 15:52:17,454 [INFO] 127.0.0.1 - - [25/Apr/2025 15:52:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-25 15:52:22,069 [INFO] 127.0.0.1 - - [25/Apr/2025 15:52:22] "GET /apidoc/swagger/ HTTP/1.1" 200 -
+2025-04-25 15:52:22,316 [INFO] 127.0.0.1 - - [25/Apr/2025 15:52:22] "GET /apidoc/openapi.json HTTP/1.1" 200 -
